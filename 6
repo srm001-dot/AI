@@ -1,0 +1,13 @@
+Travelling Salesman Problem
+
+
+road("tampa","hosan",100).
+road("hosan","Vicf",120).
+road("hosan","kansas_city",120).
+route(Town1,Town2,Distance):-
+    road(Town1,Town2,Distance).
+route(Town1,Town2,Distance):-
+    road(Town1,X,Dist1),
+    route(X,Town2,Dist2),
+    Distance is Dist1+Dist2,
+    !.
