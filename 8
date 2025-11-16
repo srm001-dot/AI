@@ -1,0 +1,40 @@
+Monkey Banana Problem
+
+
+go :-
+    take("Monkey","Stick"),
+    move("Monkey","Chair"),
+    get_on("Monkey","Chair"),
+    hit("Monkey","Stick","Banana"),
+    write("The monkey has hit the banana"), nl.
+
+go :-
+    write("The monkey couldn't reach the banana"), nl.
+
+
+take(Animal,Object) :-
+    format("Does the ~w take the ~w ? (y/n) ", [Animal, Object]),
+    get_char(Reply),
+    skip_line,
+    Reply = 'y'.
+
+
+move(Animal,Object) :-
+    format("Does the ~w move the ~w ? (y/n) ", [Animal, Object]),
+    get_char(Reply),
+    skip_line,
+    Reply = 'y'.
+
+
+get_on(Animal,Object) :-
+    format("Does the ~w get on the ~w ? (y/n) ", [Animal, Object]),
+    get_char(Reply),
+    skip_line,
+    Reply = 'y'.
+
+
+hit(Animal,Object,Fruit) :-
+    format("Does the ~w hit the ~w with the ~w ? (y/n) ", [Animal, Fruit, Object]),
+    get_char(Reply),
+    skip_line,
+    Reply = 'y'.
