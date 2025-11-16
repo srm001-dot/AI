@@ -11,3 +11,11 @@ route(Town1,Town2,Distance):-
     route(X,Town2,Dist2),
     Distance is Dist1+Dist2,
     !.
+
+
+Output:
+?-route("tampa", "kansas_city", X),
+|    write("Distance from Tampa to Kansas City is"),
+|    write(X),nl.
+Distance from Tampa to Kansas City is 220
+X = 220.
