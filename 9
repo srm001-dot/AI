@@ -1,3 +1,5 @@
+WATER JUG PROBLEM 
+
 :- dynamic rstate/2. 
 start :- 
 retractall(rstate(_, _)),  
@@ -66,4 +68,33 @@ format('Rule 8 => (0, ~w)~n', [Z]),
 state(0, Z). 
 % Base case to prevent infinite recursion 
 state(_, _) :- !. 
+
+
+
+
+Output:
+?- start.
+Starting from (0, 0)
+Rule 1 => (4, 0)
+Rule 2 => (4, 3)
+Rule 3 => (0, 3)
+Rule 7 => (3, 0)
+Rule 2 => (3, 3)
+Rule 5 => (4, 2)
+Rule 3 => (0, 2)
+Rule 7 => (2, 0)
+Rule 2 => (2, 3)
+Rule 5 => (4, 1)
+Rule 3 => (0, 1)
+Rule 7 => (1, 0)
+Rule 2 => (1, 3)
+
+
+
+
+
+
+
+
+
 
