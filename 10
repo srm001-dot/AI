@@ -1,0 +1,44 @@
+environment([
+[x, x, x, x, x, x, x],
+[x, ., ., ., ., x, x],
+[x, ., x, ., x, ., x],
+[x, ., ., ., ., ., x],
+[x, ., x, ., ., x, x],
+[x, ., ., ., x, ., x],
+[x, ., ., ., ., d, r]
+]).
+move(up, X, Y, NewX, Y) :- NewX is X - 1.
+move(down, X, Y, NewX, Y) :- NewX is X + 1.
+move(left, X, Y, X, NewY) :- NewY is Y - 1.
+move(right, X, Y, X, NewY) :- NewY is Y + 1.
+valid_pos(X, Y) :-
+X >= 1, X =< 7,
+Y >= 1, Y =< 7.
+cell_at(X, Y, Cell) :-
+environment(Grid),
+nth1(X, Grid, Row),
+nth1(Y, Row, Cell).
+is_empty(Cell) :- member(Cell, ['.', d, r]).
+find_start(X, Y) :-
+environment(Grid),
+nth1(RowIndex, Grid, Row),
+nth1(ColIndex, Row, r),
+X = RowIndex,
+Y = ColIndex.
+find_path(X, Y, _, [(X,Y)]) :-
+cell_at(X, Y, d).
+find_path(X, Y, Visited, [(X,Y)|Path]) :-
+valid_pos(X, Y),
+cell_at(X, Y, Cell),
+is_empty(Cell),
+\+ member((X,Y), Visited),
+move(_, X, Y, NX, NY),
+find_path(NX, NY, [(X,Y)|Visited], Path).
+solve(Path) :-
+find_start(X, Y),
+find_path(X, Y, [], Path),
+display_path(Path).
+display_path([]).
+display_path([(X,Y)|T]) :-
+format("Move to cell (~w, ~w)~n", [X, Y]),
+display_path(T).
