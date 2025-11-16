@@ -15,7 +15,7 @@ puzzle(L1,L2,I,N,M):-
 
 bfs(L1,L2,L3,L4,I,J,M):-
     move(L1,L2),
-    \+ member(L2,L3),
+    \+ mymember(L2,L3),
     L4 = [L2 | L3],
     S is M * truncate(I/M),
     S =\= I,
@@ -55,11 +55,12 @@ writel([A,B,C|T]):-
     write(A),write(" "),write(B),write(" "),write(C),write(" "),
     writel(T),!.
 
-member(M,[M,_]):-!.
-member(M,[_,T]):- member(M,T),!.
+mymember(M,[M|_]):- !.
+mymember(M,[_|T]):- member(M,T), !.
 
 invord([],L,L):-!.
 invord([H|T],T1,L):- invord(T,[H|T1],L),!.
+
 
 
 
