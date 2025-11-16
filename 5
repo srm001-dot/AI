@@ -13,3 +13,8 @@ childnode(A,G,[G]):-
 childnode(A,G,[X|L]):-
     child(A,X),
     childnode(X,G,L).
+
+
+Output:
+?- path(a,b,L).
+L = [a, b]
