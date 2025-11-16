@@ -1,3 +1,5 @@
+Means-End Analysis
+
 environment([
 [x, x, x, x, x, x, x],
 [x, ., ., ., ., x, x],
@@ -42,3 +44,22 @@ display_path([]).
 display_path([(X,Y)|T]) :-
 format("Move to cell (~w, ~w)~n", [X, Y]),
 display_path(T).
+
+
+
+
+
+Output:
+?- solve(Path).
+Move to cell (7, 7)
+Move to cell (7, 6)
+Path = [(7, 7),  (7, 6)]
+
+
+
+
+
+
+
+
+
