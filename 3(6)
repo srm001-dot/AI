@@ -1,0 +1,12 @@
+SHOW CONCEPT OF LIST.
+
+itnames([ram,kapil,shweta]). 
+itnames([ram,shweta,kapil]).
+
+
+Output:
+?- itnames(Y).
+Y = [ram, kapil, shweta] 
+
+?- itnames([ram|T]).
+T = [kapil, shweta]
